@@ -1,0 +1,77 @@
+{
+  "images": 1000,
+  "yolo_model_1": {
+    "mAP50": 0.5682,
+    "default_threshold": {
+      "threshold": 0.5,
+      "precision": 0.847,
+      "recall": 0.2884,
+      "f1": 0.4303
+    },
+    "best_f1_threshold": {
+      "threshold": 0.1,
+      "precision": 0.6515,
+      "recall": 0.5241,
+      "f1": 0.5809
+    },
+    "per_class_ap": {
+      "barcode": 0.7375,
+      "car": 0.7081,
+      "cardboard box": 0.6811,
+      "fire": 0.2564,
+      "forklift": 0.8167,
+      "freight container": 0.3655,
+      "gloves": 0.6805,
+      "helmet": 0.5292,
+      "ladder": 0.3324,
+      "license plate": 0.4173,
+      "person": 0.544,
+      "qr code": 0.6552,
+      "road sign": 0.2256,
+      "safety vest": 0.6988,
+      "smoke": 0.5204,
+      "traffic cone": 0.6394,
+      "traffic light": 0.8081,
+      "truck": 0.7396,
+      "van": 0.8172,
+      "wood pallet": 0.1918
+    }
+  },
+  "yolo_model_2": {
+    "mAP50": 0.5964,
+    "default_threshold": {
+      "threshold": 0.5,
+      "precision": 0.86,
+      "recall": 0.3507,
+      "f1": 0.4982
+    },
+    "best_f1_threshold": {
+      "threshold": 0.1,
+      "precision": 0.6811,
+      "recall": 0.563,
+      "f1": 0.6165
+    },
+    "per_class_ap": {
+      "barcode": 0.8488,
+      "car": 0.6936,
+      "cardboard box": 0.7457,
+      "fire": 0.3205,
+      "forklift": 0.8414,
+      "freight container": 0.4071,
+      "gloves": 0.7333,
+      "helmet": 0.5037,
+      "ladder": 0.2973,
+      "license plate": 0.3989,
+      "person": 0.6171,
+      "qr code": 0.7015,
+      "road sign": 0.3077,
+      "safety vest": 0.7565,
+      "smoke": 0.5775,
+      "traffic cone": 0.6058,
+      "traffic light": 0.7527,
+      "truck": 0.7808,
+      "van": 0.8087,
+      "wood pallet": 0.2286
+    }
+  }
+}

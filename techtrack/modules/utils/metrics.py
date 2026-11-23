@@ -1,3 +1,12 @@
+"""
+Course assignment metrics (IoU, matching, precision recall, interpolated mAP).
+
+Note: evaluate_detections matches detections to ground truth without checking the
+class, and adds missed objects with a score of 0.0, so mAP computed with these helpers
+is not the standard per class definition. scripts/evaluate_models.py implements the
+standard evaluation and is what the results in the README use. calculate_iou expects
+[x1, y1, x2, y2] corner coordinates.
+"""
 import numpy as np
 from sklearn.preprocessing import label_binarize
 

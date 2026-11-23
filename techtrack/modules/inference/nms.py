@@ -7,6 +7,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))) 
 
 from utils.metrics import calculate_iou  # Function to compute Intersection over Union (IoU).
 
+def _to_corners(box):
+    """Convert an [x, y, width, height] box to [x1, y1, x2, y2] corners."""
+    x, y, w, h = box
+    return [x, y, x + w, y + h]
+
+
 class NMS:
     """
     Implements Non-Maximum Suppression (NMS) to reduce redundant bounding boxes
@@ -97,9 +103,10 @@ class NMS:
 
                 rest_boxes = cls_bboxes[1:] # Compare current box to the rest.
 
-                ious = np.array([calculate_iou(curr_box, box) for box in rest_boxes]) # Compute IoUs between current box and remaining boxes.
+                # Boxes arrive as [x, y, width, height]; calculate_iou expects corners [x1, y1, x2, y2].
+                ious = np.array([calculate_iou(_to_corners(curr_box), _to_corners(box)) for box in rest_boxes]) # Compute IoUs between current box and remaining boxes.
 
-                inds_to_keep = np.where(ious <= self.nms_iou_threshold)[0] # Keep only boxes with an IoU greater or equal than the threshold.
+                inds_to_keep = np.where(ious <= self.nms_iou_threshold)[0] # Keep only boxes that overlap the current box by no more than the threshold.
 
                 cls_bboxes = rest_boxes[inds_to_keep] # Update the lists for the next round.
                 cls_scores = cls_scores[1:][inds_to_keep]
