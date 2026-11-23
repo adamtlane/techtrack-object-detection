@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+# Course-provided frames, videos, and YOLO weights are not redistributed.
+techtrack/storage/
